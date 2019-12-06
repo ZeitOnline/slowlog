@@ -1,4 +1,14 @@
+==============
+Important note
+==============
 
+This is a fork of https://github.com/hathawsh/slowlog for ZEIT ONLINE with 
+changes which aim to work with Python 2.7 _and_ Python 3.x.
+
+Running tests in Python 3.x throw deprecation warnings. Can't fix them without
+breaking tests in 2.7.
+
+========
 Overview
 ========
 
