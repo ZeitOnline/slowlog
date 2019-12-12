@@ -27,7 +27,11 @@ class Test_make_file_logger(unittest.TestCase):
             f = open(fn, 'r')
             content = f.read()
             f.close()
-            match = self.assertRegexpMatches
+            try:
+                match = self.assertRegex
+            except AttributeError:
+                # bw compat
+                match = self.assertRegexpMatches
             match(content.rstrip(),
                   r'\d{4}-\d{2}-\d{2} '
                   r'\d{2}:\d{2}:\d{2},\d{3} - Hello!$')

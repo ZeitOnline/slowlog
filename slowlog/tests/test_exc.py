@@ -33,7 +33,11 @@ class Test_print_stack(unittest.TestCase):
         self._call(frame, 100, f)
         lines = f.getvalue().splitlines()
         self.assertEqual(len(lines), 6)
-        match = self.assertRegexpMatches
+        try:
+            match = self.assertRegex
+        except AttributeError:
+            # bw compat
+            match = self.assertRegexpMatches
         match(lines[0], r'  File ".*/test_exc.py", line \d+, in func1$')
         match(lines[2], r'  File ".*/test_exc.py", line \d+, in func2$')
         match(lines[4], r'  File ".*/test_exc.py", line \d+, in func3$')
