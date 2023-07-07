@@ -37,7 +37,7 @@ class Monitor(Thread):
 
     def __init__(self):
         super(Monitor, self).__init__(name='slowlog_monitor')
-        self.setDaemon(True)
+        self.daemon = True
         self.queue = Queue()  # Thread communication: [(reporter, add) or None]
         self.reporters = set()  # set([Reporter])
 
